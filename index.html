@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HICOM Ops — From Paper to Live Data.</title>
+  <meta name="description" content="Retire the clipboard. HICOM Ops logs every shift straight from the floor to the sheet — no re-typing, no lost paper, LOR% the moment you enter it. The new era of plant operations." />
+
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:title" content="HICOM Ops — From Paper to Live Data." />
+  <meta property="og:description" content="Log on the floor, land in the sheet the same second. Less time, fewer mistakes, one source of truth." />
+  <meta property="og:image" content="pictures/og_image.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/png" href="pictures/favicon.png" />
+
+  <!-- Fonts (same family as the app's display / body pairing) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink:   '#100E1D',
+            ink2:  '#181530',
+            indigo:'#383287',
+            violet:'#7C74C9',
+            gold:  '#FFB020',
+            good:  '#3FC77B',
+            bad:   '#FF6B6B',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="bg-ink text-white font-body antialiased overflow-x-hidden">
+
+  <!-- Floating gradient blobs (background ambience) -->
+  <div class="blob blob--indigo"></div>
+  <div class="blob blob--gold"></div>
+  <div class="grid-fade"></div>
+  <div class="grain"></div>
+
+  <!-- ══════════ NAV ══════════ -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <nav class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5">
+        <img class="ph h-9 w-9 rounded-lg object-contain" src="pictures/app_icon.png"
+             alt="HICOM Ops" data-ratio="1/1" data-mini
+             data-ph="LOGO ICON (app_icon.png)" onerror="placeholder(this)">
+        <span class="font-display font-extrabold text-lg tracking-tight">HICOM <span class="gradient-text">Ops</span></span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="#old-way" class="hidden sm:inline text-sm text-white/70 hover:text-white transition">The old way</a>
+        <a href="#modules" class="hidden sm:inline text-sm text-white/70 hover:text-white transition">Modules</a>
+        <a href="#how" class="hidden sm:inline text-sm text-white/70 hover:text-white transition">How it works</a>
+        <a href="#download" class="btn-grad text-sm px-5 py-2.5 rounded-full font-display font-bold">Get the app</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section id="top" class="relative min-h-screen flex items-center pt-28 pb-16">
+    <img class="ph hero-bg" src="pictures/hero_bg.jpg" alt="" data-ratio="16/9"
+         data-ph="HERO PHOTO (hero_bg.jpg) — the plant floor: die-casting / machining line, moody & dark, warm metal glow. Landscape ≥1920px."
+         onerror="placeholder(this)">
+    <div class="hero-veil"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center w-full">
+      <!-- Left: copy -->
+      <div>
+        <span class="chip">⚙️ From paper to live data</span>
+        <h1 class="mt-5 font-display font-extrabold leading-[0.95] text-5xl sm:text-6xl xl:text-7xl">
+          Retire the clipboard.<br><span class="gradient-text">Log straight to the sheet.</span>
+        </h1>
+        <p class="mt-6 text-white/85 text-lg max-w-md">
+          Every shift, every machine, keyed in on the floor and saved to the master sheet the same second. No re-typing at day-end. No lost paper. Just live numbers — and the LOR% worked out for you.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#download" class="btn-grad px-7 py-3.5 rounded-full font-display font-bold">Get the app</a>
+          <a href="#old-way" class="btn-ghost px-7 py-3.5 rounded-full font-display font-bold">See the difference</a>
+        </div>
+        <!-- Stats strip -->
+        <div class="mt-12 flex gap-8">
+          <div><div class="stat gradient-text" data-count="3">3</div><div class="stat-label">Production modules</div></div>
+          <div><div class="stat gradient-text" data-count="2">2</div><div class="stat-label">Shifts, one source</div></div>
+          <div><div class="stat gradient-text">0</div><div class="stat-label">Sheets of paper</div></div>
+        </div>
+      </div>
+
+      <!-- Right: phone showing a real app screenshot -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="phone tilt" data-tilt>
+          <div class="phone-notch"></div>
+          <div class="screen-intro"></div>
+          <img class="ph phone-screen" src="pictures/home.png" alt="HICOM Ops — Casting home"
+               data-ratio="9/19.5"
+               data-ph="SCREENSHOT — home.png (Casting home, dark mode, Day/Night toggle + machine cards)"
+               onerror="placeholder(this)">
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">scroll ↓</div>
+  </section>
+
+  <!-- ══════════ THE OLD WAY vs THE NEW WAY ══════════ -->
+  <section id="old-way" class="relative py-16">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="chip">The shift</span>
+        <h2 class="mt-4 font-display font-extrabold text-4xl sm:text-5xl">Paper had its run.</h2>
+        <p class="mt-4 text-white/70 text-lg">The same numbers, written twice, read late. Here's what changes the day the clipboard goes away.</p>
+      </div>
+
+      <!-- Visual pipeline: the middle "re-key" step that disappears -->
+      <div class="pipes" data-reveal>
+        <!-- BEFORE -->
+        <div class="pipe pipe--old">
+          <span class="pipe-tag pipe-tag--old">Before · 3 steps</span>
+          <div class="pipe-row">
+            <figure class="node">
+              <img class="ph node-img" src="pictures/flow_paper.jpg" alt="Paper log on the floor"
+                   data-ratio="4/3" data-ph="flow_paper.jpg — hand writing output on a paper log / clipboard on the plant floor"
+                   onerror="placeholder(this)">
+              <figcaption>Paper log<small>written on the floor</small></figcaption>
+            </figure>
+            <span class="arrow">→</span>
+            <figure class="node node--waste">
+              <img class="ph node-img" src="pictures/flow_retype.jpg" alt="Re-typing paper into a spreadsheet"
+                   data-ratio="4/3" data-ph="flow_retype.jpg — office worker manually typing the paper numbers into Excel on a desktop"
+                   onerror="placeholder(this)">
+              <figcaption>Re-key into Excel<small>hours · error-prone</small></figcaption>
+              <span class="waste-badge">wasted step</span>
+            </figure>
+            <span class="arrow">→</span>
+            <figure class="node">
+              <img class="ph node-img" src="pictures/flow_sheet.png" alt="The spreadsheet"
+                   data-ratio="4/3" data-ph="flow_sheet.png — screenshot of the Google Sheet with production data"
+                   onerror="placeholder(this)">
+              <figcaption>Sheet<small>a day later</small></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- NOW -->
+        <div class="pipe pipe--new">
+          <span class="pipe-tag pipe-tag--new">Now · 1 step</span>
+          <div class="pipe-row">
+            <figure class="node">
+              <img class="ph node-img" src="pictures/flow_app.jpg" alt="Logging in the HICOM Ops app"
+                   data-ratio="4/3" data-ph="flow_app.jpg — hand holding a phone running the app on the plant floor"
+                   onerror="placeholder(this)">
+              <figcaption>HICOM Ops<small>tap on the floor</small></figcaption>
+            </figure>
+            <span class="arrow arrow--gold">→</span>
+            <figure class="node node--gone">
+              <div class="gone-x">✕</div>
+              <figcaption>No re-keying<small>step eliminated</small></figcaption>
+            </figure>
+            <span class="arrow arrow--gold">→</span>
+            <figure class="node">
+              <img class="ph node-img" src="pictures/flow_sheet.png" alt="The spreadsheet"
+                   data-ratio="4/3" data-ph="flow_sheet.png — screenshot of the Google Sheet with production data"
+                   onerror="placeholder(this)">
+              <figcaption>Sheet<small>the same second</small></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-2 gap-6 items-stretch">
+        <!-- Paper -->
+        <div class="compare compare--old" data-reveal>
+          <div class="compare-head">
+            <span class="compare-tag compare-tag--old">Before · on paper</span>
+            <h3 class="compare-title">The clipboard</h3>
+          </div>
+          <ul class="compare-list">
+            <li class="x">Handwritten on a board, one machine at a time</li>
+            <li class="x">Hours spent re-typing it into Excel at day-end</li>
+            <li class="x">Smudged, lost, or illegible sheets</li>
+            <li class="x">Every manual copy is a chance for a mistake</li>
+            <li class="x">Management sees yesterday's output — tomorrow</li>
+          </ul>
+        </div>
+
+        <!-- App -->
+        <div class="compare compare--new" data-reveal>
+          <div class="compare-head">
+            <span class="compare-tag compare-tag--new">Now · in the app</span>
+            <h3 class="compare-title gradient-text">HICOM Ops</h3>
+          </div>
+          <ul class="compare-list">
+            <li class="v">Key the numbers in right at the machine</li>
+            <li class="v">Written to the master sheet the same second</li>
+            <li class="v">One source of truth — every shift, every module</li>
+            <li class="v">LOR% calculated for you, zero mental math</li>
+            <li class="v">A live dashboard the office sees in real time</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Impact band -->
+      <div class="mt-6 grid sm:grid-cols-3 gap-6">
+        <div class="impact" data-reveal>
+          <div class="impact-num gradient-text">Hours&nbsp;→&nbsp;Seconds</div>
+          <div class="impact-label">Data entry time, per shift</div>
+        </div>
+        <div class="impact" data-reveal>
+          <div class="impact-num gradient-text">No re-typing</div>
+          <div class="impact-label">The floor entry <i>is</i> the record</div>
+        </div>
+        <div class="impact" data-reveal>
+          <div class="impact-num gradient-text">Fewer mistakes</div>
+          <div class="impact-label">One entry, no copy step to get wrong</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ HOW IT WORKS ══════════ -->
+  <section id="how" class="relative py-16">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="chip">How it works</span>
+        <h2 class="mt-4 font-display font-extrabold text-4xl sm:text-5xl">Floor to dashboard, in one tap</h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        <div class="step" data-reveal>
+          <div class="step-num">01</div>
+          <div class="step-ico">🏭</div>
+          <h3 class="step-title">Log on the floor</h3>
+          <p class="step-text">Pick the machine, the shift and the part, type the output. The app fills in the MO and the time slot for you.</p>
+        </div>
+        <div class="step" data-reveal>
+          <div class="step-num">02</div>
+          <div class="step-ico">☁️</div>
+          <h3 class="step-title">Straight to the sheet</h3>
+          <p class="step-text">It writes to your Google Sheet the same second — the database your team already trusts, no export, no import.</p>
+        </div>
+        <div class="step" data-reveal>
+          <div class="step-num">03</div>
+          <div class="step-ico">📈</div>
+          <h3 class="step-title">Dashboard goes live</h3>
+          <p class="step-text">LOR% and daily trends update instantly. The office sees the plant's real numbers while the shift is still running.</p>
+        </div>
+      </div>
+
+      <div class="flow-line" data-reveal>
+        <span>App</span><i>→</i><span>Google Sheet</span><i>→</i><span>Live dashboard</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MODULES ══════════ -->
+  <section id="modules" class="relative py-16">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="chip">One app, three floors</span>
+        <h2 class="mt-4 font-display font-extrabold text-4xl sm:text-5xl">Every line, the same rhythm</h2>
+        <p class="mt-4 text-white/70 text-lg">Casting, Secondary and Machining — each keeps its own shape, all on the same Day/Night, MO and live-LOR% model.</p>
+      </div>
+
+      <div class="mt-16 grid lg:grid-cols-3 gap-6">
+        <div class="module" data-reveal>
+          <div class="module-ico">🔥</div>
+          <h3 class="module-title">Casting</h3>
+          <p class="module-text">Die-casting machines (DCM) and their parts. Six checkpoints a shift, output against plan, LOR% the moment you enter it.</p>
+          <div class="tags"><span>DCM</span><span>MO / part</span><span>Day · Night</span></div>
+        </div>
+        <div class="module" data-reveal>
+          <div class="module-ico">⚒️</div>
+          <h3 class="module-title">Secondary</h3>
+          <p class="module-text">Finishing stations and their parts. Same two-shift rhythm, same instant LOR% — actual against plan, checkpoint by checkpoint.</p>
+          <div class="tags"><span>Station</span><span>MO / part</span><span>Day · Night</span></div>
+        </div>
+        <div class="module" data-reveal>
+          <div class="module-ico">⚙️</div>
+          <h3 class="module-title">Machining</h3>
+          <p class="module-text">Customer → part → line, one level deeper. Output <i>and</i> rejection tracked per checkpoint, LOR% and scrap side by side.</p>
+          <div class="tags"><span>Customer / line</span><span>Rejection</span><span>Day · Night</span></div>
+        </div>
+      </div>
+
+      <!-- Feature minis -->
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🌗</div>
+          <h4 class="mini-title">Real Day / Night</h4>
+          <p class="mini-text">A shift starts at 8&nbsp;AM or 8&nbsp;PM — not midnight. Night's early hours file under the shift that logged them.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🏷️</div>
+          <h4 class="mini-title">MO per part</h4>
+          <p class="mini-text">Set the month's manufacturing order once. Every log stamps the MO that was live when it was recorded.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🧮</div>
+          <h4 class="mini-title">LOR% auto-calc</h4>
+          <p class="mini-text">Output ÷ plan, worked out the instant you type — no calculator, no formula to copy down.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">📊</div>
+          <h4 class="mini-title">Live trends</h4>
+          <p class="mini-text">Daily output, LOR% and rejection, both shifts summed — a dashboard that's current, not a day behind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ DOWNLOAD / CTA ══════════ -->
+  <section id="download" class="relative py-16">
+    <div class="mx-auto max-w-5xl px-6">
+      <div class="cta text-center" data-reveal>
+        <span class="chip">The new era</span>
+        <h2 class="mt-4 font-display font-extrabold text-4xl sm:text-5xl">Move the plant off paper.</h2>
+        <p class="mt-4 text-white/75 text-lg max-w-xl mx-auto">
+          Install HICOM Ops on any Android phone or tablet on the floor. It logs to the same sheet your team already runs on — start today, keep every record you already have.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4 justify-center">
+          <a href="downloads/hicom-ops.apk" download class="btn-grad px-8 py-4 rounded-full font-display font-bold text-lg">Download the APK</a>
+          <a href="#top" class="btn-ghost px-8 py-4 rounded-full font-display font-bold text-lg">Back to top</a>
+        </div>
+        <p class="mt-5 text-white/45 text-sm">
+          Android only. After it downloads, open the file and allow install from your
+          file manager. Needs internet — it logs to the live sheet.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="relative border-t border-white/10 py-12">
+    <div class="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2.5">
+        <img class="ph h-8 w-8 rounded-lg object-contain" src="pictures/app_icon.png" alt=""
+             data-ratio="1/1" data-mini data-ph="ICON" onerror="placeholder(this)">
+        <span class="font-display font-bold">HICOM <span class="gradient-text">Ops</span></span>
+      </div>
+      <p class="text-white/40 text-sm">Production shift log · straight to the sheet.</p>
+      <p class="text-white/40 text-sm">© 2026 HICOM Ops — the new era of the floor.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
