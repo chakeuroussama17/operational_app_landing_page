@@ -303,6 +303,82 @@ header.scrolled { background: rgba(16,14,29,.82); backdrop-filter: blur(12px); b
 .impact-label { color: rgba(255,255,255,.6); font-size: 13.5px; margin-top: 8px; }
 .impact-label i { color: rgba(255,255,255,.85); font-style: italic; }
 
+/* PHONE RACK — rows of real app screenshots in 3D mockups ---------------- */
+.rack {
+  margin-top: 54px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px 30px;
+  perspective: 1600px;
+}
+
+.shot { width: 236px; perspective: 1200px; }
+
+/* At rest a rack reads as a shallow arc: the outer units turn to face the
+   middle, and the middle one steps forward out of the page. The rotation
+   lives on this wrapper rather than on .phone, because vanilla-tilt writes
+   its own transform onto .phone — on separate elements the two compose
+   instead of overwriting each other. */
+.phone-3d { transition: transform .45s cubic-bezier(.2,.7,.3,1); }
+.rack .shot:first-child .phone-3d { transform: rotateY(15deg) rotateX(2deg); }
+.rack .shot:last-child  .phone-3d { transform: rotateY(-15deg) rotateX(2deg); }
+.shot--lift .phone-3d   { transform: translateZ(46px); }
+/* Pick one up and it turns to face you. */
+.rack .shot:hover .phone-3d { transform: rotateY(0) rotateX(0) translateZ(46px); }
+
+/* A smaller body of the hero phone, so three fit across a laptop. */
+.phone--sm {
+  width: 236px;
+  border-radius: 32px;
+  padding: 9px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.6),
+    0 0 0 2px rgba(255,255,255,.04),
+    0 0 50px rgba(124,116,201,.18);
+}
+.phone--sm .phone-screen { border-radius: 24px; object-position: top; }
+.phone--sm .phone-notch {
+  width: 82px; height: 17px; top: 12px; border-radius: 0 0 11px 11px;
+}
+
+/* The middle unit of a trio stands proud, so the row reads as depth
+   rather than as a grid of three equal thumbnails. */
+.shot--lift { transform: translateY(-26px); }
+
+.shot-cap { text-align: center; margin-top: 20px; }
+.shot-step {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; letter-spacing: 1.2px;
+  color: var(--gold);
+  padding: 3px 10px; border-radius: 999px;
+  background: rgba(255,176,32,.10);
+  border: 1px solid rgba(255,176,32,.28);
+}
+.shot-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700; font-size: 17px; margin-top: 10px;
+}
+.shot-text {
+  color: rgba(255,255,255,.6);
+  font-size: 13px; line-height: 1.55; margin-top: 6px;
+}
+
+/* Angled mockups only read as depth while they sit side by side, so the arc
+   comes off before the row wraps. A trio needs 3×236 + 2×30 + 48 of page
+   padding ≈ 816px, hence the 860px cut-off. */
+@media (max-width: 860px) {
+  .shot--lift { transform: none; }
+  .rack { gap: 34px 20px; }
+  .rack .shot .phone-3d { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-3d { transition: none; }
+}
+
 /* Steps ----------------------------------------------------------------- */
 .step {
   position: relative; text-align: center; padding: 28px;

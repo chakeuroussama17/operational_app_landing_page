@@ -66,8 +66,9 @@
       </a>
       <div class="flex items-center gap-6">
         <a href="#old-way" class="hidden sm:inline text-sm text-white/70 hover:text-white transition">The old way</a>
+        <a href="#use" class="hidden sm:inline text-sm text-white/70 hover:text-white transition">How to use</a>
         <a href="#modules" class="hidden sm:inline text-sm text-white/70 hover:text-white transition">Modules</a>
-        <a href="#how" class="hidden sm:inline text-sm text-white/70 hover:text-white transition">How it works</a>
+        <a href="#dashboards" class="hidden md:inline text-sm text-white/70 hover:text-white transition">Dashboards</a>
         <a href="#download" class="btn-grad text-sm px-5 py-2.5 rounded-full font-display font-bold">Get the app</a>
       </div>
     </nav>
@@ -268,6 +269,78 @@
     </div>
   </section>
 
+  <!-- ══════════ HOW TO USE ══════════ -->
+  <section id="use" class="relative py-16">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="chip">How to use</span>
+        <h2 class="mt-4 font-display font-extrabold text-4xl sm:text-5xl">A whole shift, in <span class="gradient-text">two screens</span></h2>
+        <p class="mt-4 text-white/70 text-lg">No training day. Open your line, fill the hour you're on, hit save — the sheet has it before the phone is back in your pocket.</p>
+      </div>
+
+      <div class="rack" data-reveal>
+        <figure class="shot">
+          <div class="phone-3d">
+            <div class="phone phone--sm tilt" data-tilt>
+              <div class="phone-notch"></div>
+              <img class="ph phone-screen" src="pictures/que1.png"
+                   alt="HICOM Ops — entering hourly output and a defect"
+                   data-ratio="9/19.5"
+                   data-ph="SCREENSHOT — que1.png (entry screen: plan, hourly output, rejection row)"
+                   onerror="placeholder(this)">
+            </div>
+          </div>
+          <figcaption class="shot-cap">
+            <span class="shot-step">01 · ENTER</span>
+            <h3 class="shot-title">Type the hour you're on</h3>
+            <p class="shot-text">Line, shift and MO sit in chips at the top. Put 100 against a plan of 300 and LOR reads 33.33% on the spot. A defect needs a code and a quantity — nothing else.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <div class="phone-3d">
+            <div class="phone phone--sm tilt" data-tilt>
+              <div class="phone-notch"></div>
+              <img class="ph phone-screen" src="pictures/que2.png"
+                   alt="HICOM Ops — shift totals and the save button"
+                   data-ratio="9/19.5"
+                   data-ph="SCREENSHOT — que2.png (totals, rejection summary, SAVE LOG)"
+                   onerror="placeholder(this)">
+            </div>
+          </div>
+          <figcaption class="shot-cap">
+            <span class="shot-step">02 · SAVE</span>
+            <h3 class="shot-title">Check totals, then save</h3>
+            <p class="shot-text">Output so far against plan, what's left to make, and every defect added up by type. One gold button and it's in the sheet.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🧮</div>
+          <h3 class="mini-title">No maths on the floor</h3>
+          <p class="mini-text">LOR%, running totals and what's left to plan are worked out as you type. Nobody carries a calculator.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">⏱️</div>
+          <h3 class="mini-title">Hour by hour</h3>
+          <p class="mini-text">Ahmad takes 8AM, Karim takes 10AM. Empty slots stay open; filled ones show who entered them and when.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">✏️</div>
+          <h3 class="mini-title">Fix a count, not the row</h3>
+          <p class="mini-text">Miscounted the scrap? Change the quantity and the good pieces move straight back into output.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🔒</div>
+          <h3 class="mini-title">The plan stays put</h3>
+          <p class="mini-text">Once the target is in, it's locked — so the plan can never quietly drift to match the result.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════ MODULES ══════════ -->
   <section id="modules" class="relative py-16">
     <div class="mx-auto max-w-7xl px-6">
@@ -319,6 +392,96 @@
           <div class="mini-icon">📊</div>
           <h4 class="mini-title">Live trends</h4>
           <p class="mini-text">Daily output, LOR% and rejection, both shifts summed — a dashboard that's current, not a day behind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ DASHBOARDS & ANALYTICS ══════════ -->
+  <section id="dashboards" class="relative py-16">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-2xl mx-auto" data-reveal>
+        <span class="chip">Dashboards &amp; analytics</span>
+        <h2 class="mt-4 font-display font-extrabold text-4xl sm:text-5xl">The shift, <span class="gradient-text">while it's still running</span></h2>
+        <p class="mt-4 text-white/70 text-lg">Same app, same login. Every log written on the floor turns into a chart the office can read a second later — no export, no pivot table, no waiting for Monday.</p>
+      </div>
+
+      <div class="rack" data-reveal>
+        <figure class="shot">
+          <div class="phone-3d">
+            <div class="phone phone--sm tilt" data-tilt>
+              <div class="phone-notch"></div>
+              <img class="ph phone-screen" src="pictures/dashboard1.png"
+                   alt="HICOM Ops dashboard — totals and the output trend"
+                   data-ratio="9/19.5"
+                   data-ph="SCREENSHOT — dashboard1.png (KPI tiles + output line chart)"
+                   onerror="placeholder(this)">
+            </div>
+          </div>
+          <figcaption class="shot-cap">
+            <span class="shot-step">TRENDS</span>
+            <h3 class="shot-title">Totals, and the curve</h3>
+            <p class="shot-text">Output and rejections across 7, 14 or 30 days, narrowed to one customer or all of them. Touch the line and it tells you that day's number.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="shot shot--lift">
+          <div class="phone-3d">
+            <div class="phone phone--sm tilt" data-tilt>
+              <div class="phone-notch"></div>
+              <img class="ph phone-screen" src="pictures/dashboard2.png"
+                   alt="HICOM Ops dashboard — defect composition and defects by type"
+                   data-ratio="9/19.5"
+                   data-ph="SCREENSHOT — dashboard2.png (defect donut + ranked bars)"
+                   onerror="placeholder(this)">
+            </div>
+          </div>
+          <figcaption class="shot-cap">
+            <span class="shot-step">CAUSES</span>
+            <h3 class="shot-title">What's actually failing</h3>
+            <p class="shot-text">Defects split as a donut, then the same colours ranked as bars. <i class="not-italic text-white/85">Bulging is 34% of your scrap</i> stops being an opinion.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <div class="phone-3d">
+            <div class="phone phone--sm tilt" data-tilt>
+              <div class="phone-notch"></div>
+              <img class="ph phone-screen" src="pictures/dashboard3.png"
+                   alt="HICOM Ops dashboard — worst rejection rates and the daily figures table"
+                   data-ratio="9/19.5"
+                   data-ph="SCREENSHOT — dashboard3.png (worst-rate bars + daily figures table)"
+                   onerror="placeholder(this)">
+            </div>
+          </div>
+          <figcaption class="shot-cap">
+            <span class="shot-step">DETAIL</span>
+            <h3 class="shot-title">The numbers behind it</h3>
+            <p class="shot-text">Under every chart sits the plain table — date, output, LOR%, rejects, part by part. Colour is for spotting; numbers are for the morning meeting.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🎛️</div>
+          <h3 class="mini-title">Filter it down</h3>
+          <p class="mini-text">DCM21 on its own or the whole bay. Casting and Secondary slice by machine, Machining by customer and part.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🌗</div>
+          <h3 class="mini-title">Day against night</h3>
+          <p class="mini-text">Same part, same plan, two shifts, side by side. Usually the chart that starts the conversation.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🏆</div>
+          <h3 class="mini-title">Rate, not raw count</h3>
+          <p class="mini-text">Parts ranked by rejection rate — so 10 scrap out of 72 shows up as the real problem, not hidden behind a 2,400-piece run.</p>
+        </div>
+        <div class="mini" data-reveal>
+          <div class="mini-icon">🔐</div>
+          <h3 class="mini-title">Your department only</h3>
+          <p class="mini-text">Casting opens casting. Machining opens machining. Management logs in and sees all three at once.</p>
         </div>
       </div>
     </div>
